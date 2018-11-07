@@ -1,0 +1,16 @@
+{
+  "name": "workerfy",
+  "version": "0.0.1",
+  "description": "Offload (almost) any function to a worker thread",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robin-drexler/workerfy"
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  },
+  "scripts": {
+    "test": "node --experimental-worker test.js"
+  }
+}
