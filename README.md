@@ -7,17 +7,19 @@ Heavily inspired by [promisfy](https://nodejs.org/dist/latest-v8.x/docs/api/util
 ## Warning
 **DO NOT USE (YET)**
 
+This is only a proof of concept as of now.
 Does not work under some circumstances, because `workerfy` relies on being able to stringify the passed function.
 Bound functions always return `"function () { [native code] }"` when being stringified.
-Inline functions that use closured values won't work.
+Inline functions that use closured values won't work as well.
 
 ```js
 const a = 1;
 workerfy(() => a + 1); // will not work
 ```
 
-Methods that access `this`.
+Methods that access `this` also can't be used.
 
+Currently it also creates a new worker instance for each invocation, because I was not able to prevent the node process from hanging otherwise. I.e. I could not figure when/how to terminate the workers.
 
 ## Example
 
